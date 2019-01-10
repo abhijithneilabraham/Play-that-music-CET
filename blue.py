@@ -19,7 +19,7 @@ import cv2
 
 from pygame import mixer
 cap = cv2.VideoCapture(0)
-p=100
+
 i=0
 
 
@@ -55,22 +55,33 @@ while(True):
        cv2.drawContours(frame, [c], -1, (0,255,0), 3)
        
    p=200
+   q=150
    i=0
    if cY>=p:
        
        mixer.init()
        mixer.music.load('bgm_3.mp3')
-       mixer.music.play( )    
+       mixer.music.play()    
             
        p=cY
-   else:
+       
+   elif cY<p:
              
        mixer.init()
-       mixer.music.load('bgm_3.mp3')
+       mixer.music.load('bgm_4.mp3')
        mixer.music.play()   
            
        p=cY
-        
+   if cX>=q:
+       mixer.init()
+       mixer.music.load('bgm_2.mp3')
+       mixer.music.play() 
+       
+   elif cX<q:
+       mixer.init()
+       mixer.music.load('bgm_2.mp3')
+       mixer.music.play()  
+       
      # Display the resulting frame
    cv2.imshow('frame',frame)
    if cv2.waitKey(1) & 0xFF == ord('q'):
