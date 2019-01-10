@@ -55,32 +55,34 @@ while(True):
        cv2.drawContours(frame, [c], -1, (0,255,0), 3)
        
    p=200
-   q=150
-   i=0
-   if cY>=p:
+   q=200
+   
+   if cY>=p and cX>=q:
        
        mixer.init()
        mixer.music.load('bgm_3.mp3')
        mixer.music.play()    
             
-       p=cY
+      
        
-   elif cY<p:
+   elif cY>=p and cX<q:
              
        mixer.init()
        mixer.music.load('bgm_4.mp3')
        mixer.music.play()   
            
-       p=cY
-   if cX>=q:
+       
+   if cY<p and cX>=q:
        mixer.init()
        mixer.music.load('bgm_2.mp3')
        mixer.music.play() 
+      
        
-   elif cX<q:
+   elif cY<p and cX<q:
        mixer.init()
        mixer.music.load('bgm_2.mp3')
-       mixer.music.play()  
+       mixer.music.play()
+       
        
      # Display the resulting frame
    cv2.imshow('frame',frame)
